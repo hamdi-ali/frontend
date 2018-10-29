@@ -1,0 +1,151 @@
+<div class="container" layout-align="center center">
+  <div class="animated fadeIn">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-header">
+          <strong>Coordonnées</strong>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label>Nom</label>
+                <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="apprenant.lastName" placeholder="">
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="prenom">Prénom</label>
+              <input type="text" id="prenom" class="form-control" [(ngModel)]="apprenant.firstName" placeholder="">
+            </div>
+          </div><!--/.row-->
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label for="cin">CIN</label>
+                <input type="number" class="form-control" id="cin" [(ngModel)]="apprenant.cin" placeholder="">
+            </div>
+            <div class="form-group col-sm-6">
+               <label for="tel">Tel</label>
+               <input type="number" id="tel" class="form-control" [(ngModel)]="apprenant.phone" placeholder="">
+            </div>
+          </div><!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="date_naissance">Date de Naissance</label>
+                <input type="date" id="birthDate" class="form-control" [(ngModel)]="apprenant.birthDate">
+              </div>
+            </div>
+          </div><!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="addresse">Addresse</label>
+                <input type="text" id="address" class="form-control" [(ngModel)]="apprenant.adress" placeholder="">
+              </div>
+            </div>
+            </div><!--/.row-->
+              <div class="row">
+                <div class="form-group col-sm-12">
+                  <label for="parcours">Parcours</label>
+                  <select class="form-control" id="parcours">
+                    <option>JAVA Full Stack</option>
+                    <option>PHP Full Stack</option>
+                    <option>Développement frontend Angular</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-sm-8">
+                  <label for="promotion">Promotion</label>
+                  <select class="form-control" id="promotion">
+                    <option>2018</option>
+                    <option>2017</option>
+                  </select>
+                </div>
+                <div class="form-group col-sm-4">
+                  <label for="image">Photo</label>
+                  <input type="file" class="form-control" id="image" placeholder="No file chosen" (change)="uploadImageService.fileChangeEvent($event)">
+                </div>
+              </div><!--/.row-->
+        </div>
+      </div>
+    </div><!--/.col-->
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-header">
+          <strong>Formation</strong>
+        </div>
+        <div class="card-body">
+          <div class="form-group">
+            <label for="diplome">Diplome</label>
+            <select class="form-control" id="diplome">
+              <option>Ingénieur</option>
+              <option>licence</option>
+              <option>Doctorat</option>
+              <option>Master de recherche</option>
+              <option>Master professionnel</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="institut">Ecole ou Institut</label>
+            <select class="form-control" id="institut">
+              <option>Ecole Nationale d'Ingénieur de Carthage</option>
+              <option>Esprit</option>
+              <option>FST</option>
+            </select>
+          </div>
+          <div class="row">
+            <div class="form-group col-sm-12">
+              <label for="année_obtention">Année d'obtention</label>
+              <select class="form-control" id="année_obtention" >
+                <option>2018</option>
+                <option>2017</option>
+                <option>2016</option>
+                <option>2015</option>
+              </select>
+            </div>
+          </div>
+          <strong>User Account</strong><p></p>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="mail">Mail</label>
+                <input type="text" id="mail" class="form-control" [(ngModel)]="apprenant.email" placeholder="">
+              </div>
+            </div>
+            </div><!--/.row-->
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label for="username">Nom d'utilisateur</label>
+                  <input type="text" id="username" class="form-control" [(ngModel)]="apprenant.username" placeholder="" required>
+                </div>
+              </div>
+              </div><!--/.row-->
+          <!--div class="row">
+            <div class="form-group col-sm-8">
+              <label for="city">City</label>
+              <input type="text" class="form-control" id="city" placeholder="Enter your city">
+            </div>
+            <div class="form-group col-sm-4">
+              <label for="postal-code">Postal Code</label>
+              <input type="text" class="form-control" id="postal-code" placeholder="Postal Code">
+            </div>
+          </div></.row-->
+          <div class="form-actions">
+            <button type="submit" class="btn btn-success" value="save" (click)="ajouterApprenant()">Save changes</button>
+            <button class="btn btn-danger" type="button" routerLink = "/dashboard">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div><!--/.col-->
+    </div>
+  </div><!--/.row-->
+  <!--button type="button" [hidden]="!apprenantAjoute" class="btn btn-success" data-toggle="modal" (click)="successModal.show()">
+      Apprenant Ajouté
+  </button-->
+  
+  <div class="row" [hidden]="!apprenantAjoute"
+	>
+		<h3>Apprenant added successfully!</h3>
+	</div>
+</div>

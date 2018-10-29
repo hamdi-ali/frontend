@@ -1,17 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { GetListApprenantService } from '../../services/apprenant/get-list-apprenant.service'
+import { Apprenant } from '../../models/apprenant';
 
 @Component({
   templateUrl: 'dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
+  //public objectKeys: Object;
+  private apprenantList: Apprenant[];
 
   public brandPrimary = '#20a8d8';
   public brandSuccess = '#4dbd74';
   public brandInfo = '#63c2de';
   public brandWarning = '#f8cb00';
   public brandDanger = '#f86c6b';
-
+  constructor( public getListApprenantService: GetListApprenantService){
+    
+  }
+   getApprenantCount(): any{
+    this.getListApprenantService.getListApprenant().subscribe(
+      res => {
+        console.log(res.json().length);
+        /*this.apprenantList=res.json();
+        for ( let item of this.apprenantList){
+          console.log('item :', item.firstName)
+        }*/
+        return res.json().length;
+      }, 
+      error => {
+        console.log(error);
+      }
+    );
+  }
   // dropdown buttons
   // public status: { isopen } = { isopen: false };
   // public toggleDropdown($event: MouseEvent): void {
@@ -459,12 +480,28 @@ export class DashboardComponent implements OnInit {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
-  ngOnInit(): void {
+  ngOnInit(): any {
     // generate random values for mainChart
-    for (let i = 0; i <= this.mainChartElements; i++) {
+    /*for (let i = 0; i <= this.mainChartElements; i++) {
       this.mainChartData1.push(this.random(50, 200));
       this.mainChartData2.push(this.random(80, 100));
       this.mainChartData3.push(65);
-    }
+      
+    }*/
+    this.getListApprenantService.getListApprenant().subscribe(
+      res => {
+        console.log(res.json().length);
+        /*this.apprenantList=res.json();
+        for ( let item of this.apprenantList){
+          console.log('item :', item.firstName)
+        }*/
+        return res.json().length;
+      }, 
+      error => {
+        console.log(error);
+      }
+    );
+    
   }
+  
 }

@@ -6,27 +6,38 @@
           <div class="card-body p-4">
             <h1>Register</h1>
             <p class="text-muted">Create your account</p>
+            <div class="alert alert-info" *ngIf="emailSent">An email has been sent to the email address you just registered. Please validate your email adderss and update your password info.</div>
             <div class="input-group mb-3">
               <span class="input-group-addon"><i class="icon-user"></i></span>
-              <input type="text" class="form-control" placeholder="Username">
+              <input type="text" class="form-control" placeholder="Username" [(ngModel)]="username" [ngModelOptions]="{standalone: true}">
             </div>
 
             <div class="input-group mb-3">
               <span class="input-group-addon">@</span>
-              <input type="text" class="form-control" placeholder="Email">
+              <input type="text" class="form-control" placeholder="Email" [(ngModel)]="email" required="required">
             </div>
 
             <div class="input-group mb-3">
+              <span class="input-group-addon"><i class="icon-user"></i></span>
+              <input type="text" class="form-control" placeholder="Firstname" [(ngModel)]="firstname" [ngModelOptions]="{standalone: true}">
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-addon"><i class="icon-user"></i></span>
+              <input type="text" class="form-control" placeholder="Lastname" [(ngModel)]="lastname" [ngModelOptions]="{standalone: true}">
+            </div>
+
+            <!----div class="input-group mb-3">
               <span class="input-group-addon"><i class="icon-lock"></i></span>
-              <input type="password" class="form-control" placeholder="Password">
+              <input type="password" class="form-control" placeholder="Password" [(ngModel)]="user.password" >
             </div>
 
             <div class="input-group mb-4">
               <span class="input-group-addon"><i class="icon-lock"></i></span>
-              <input type="password" class="form-control" placeholder="Repeat password">
-            </div>
+              <input type="password" class="form-control" placeholder="Repeat password"  [(ngModel)]="user.password">
+            </div-->
 
-            <button type="button" class="btn btn-block btn-success">Create Account</button>
+            <button type="button" class="btn btn-block btn-success" (click)="onNewAccount()">Create Account</button>
           </div>
           <div class="card-footer p-4">
             <div class="row">
@@ -42,4 +53,20 @@
       </div>
     </div>
   </div>
+</div>
+<div style="margin-top: 20px;">
+  <div class="alert alert-info" *ngIf="emailSent">An email has been sent to the email address you just registered. Please validate your email adderss and update your password info.</div>
+  <form (ngSubmit)="onNewAccount()">
+    <div class="form-group">
+      <label for="newUsername">Username *</label>&nbsp;<span *ngIf="usernameExists" style="color:red;">Username already exists. Choose a different one.</span>
+      <input type="text" class="form-control" id="newUsername" name="username" [(ngModel)]="username" required="required" >
+      <p style="color:#828282;">Enter your username</p>
+    </div>
+    <div class="form-group">
+      <label for="email">Email Address *</label>&nbsp;<span *ngIf="emailExists" style="color:red;">Email already exists. Choose a different one.</span>
+      <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" required="required" >
+      <p style="color:#828282;">A valid e-mail address. All e-mails from the system will be sent to this address.</p>
+    </div>
+    <button md-raised-button type="submit" class="mat-primary">Create new account</button>
+  </form>
 </div>

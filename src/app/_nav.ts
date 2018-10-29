@@ -3,14 +3,68 @@ export const navigation = [
     name: 'Dashboard',
     url: '/dashboard',
     icon: 'icon-speedometer',
-    badge: {
+    /*badge: {
       variant: 'info',
       text: 'NEW'
-    }
-  },
+    }*/
+  }/*,
   {
     title: true,
     name: 'UI elements'
+  }*/,
+  {
+    name: 'Parcours',
+    url: '/',
+    icon: 'icon-calculator',
+    children: [/*
+      {
+        name: 'Ajout Parcours',
+        url: '/add-new-training',
+        icon: 'icon-plus'
+      },*/
+      {
+        name: 'Liste Parcours',
+        url: '/training-list',
+        icon: 'icon-list'
+      }]
+  },
+  {
+    name: 'Promotions',
+    url: '',
+    icon: 'icon-badge',
+    children: [
+      {
+        name: 'Liste des promotions',
+        url: '/liste-promotions',
+        icon: 'icon-list'
+      }]
+  },
+  {
+    name: 'Compétences',
+    url: '',
+    icon: 'icon-star',
+    children: [
+      {
+        name: 'Liste de Compétences',
+        url: '/liste-competences',
+        icon: 'icon-list'
+      }]
+  },
+  {
+    name: 'Apprenants',
+    url: '/',
+    icon: 'icon-graduation',
+    children: [
+      {
+        name: 'Ajout Apprenant',
+        url: '/add-new-learner',
+        icon: 'icon-plus'
+      },
+      {
+        name: 'Liste Apprenants',
+        url: '/liste-apprenants',
+        icon: 'icon-list'
+      }]
   },
   {
     name: 'Components',
@@ -55,6 +109,11 @@ export const navigation = [
       {
         name: 'Tabs',
         url: '/components/tabs',
+        icon: 'icon-puzzle'
+      },
+      {
+        name: 'test',
+        url: '/views/components/mytest',
         icon: 'icon-puzzle'
       }
     ]
@@ -140,20 +199,12 @@ export const navigation = [
         name: 'Error 500',
         url: '/pages/500',
         icon: 'icon-star'
+      },
+      {
+        name: 'Forgot password',
+        url: '/pages/forgot-password',
+        icon: 'icon-badge'
       }
     ]
-  },
-  {
-    name: 'Download CoreUI',
-    url: 'http://coreui.io/angular/',
-    icon: 'icon-cloud-download',
-    class: 'mt-auto',
-    variant: 'success'
-  },
-  {
-    name: 'Try CoreUI PRO',
-    url: 'http://coreui.io/pro/angular/',
-    icon: 'icon-layers',
-    variant: 'danger'
   }
 ];
